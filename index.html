@@ -1,0 +1,131 @@
+<!-- Base template code nav, top, index.html -->
+<!DOCTYPE html>
+<html lang="da">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Køge Handel - Blegdammens p-plads</title>
+    <link rel="stylesheet" href="./styles/nav.css">
+    <link rel="stylesheet" href="./styles/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@0,400;0,600;0,700;1,400;1,600&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+    <div class="mobiletop">
+        <div class="logo">
+            <img src="https://res.cloudinary.com/ddqar8r8f/image/upload/v1676982758/K%C3%B8ge%20handel/k%C3%B8ge_handel-logo_gtd8n8.png"
+                alt="Køge Handel">
+        </div>
+
+    </div>
+    <nav>
+        <div class="icon-bar">
+            <div class="icon">
+                <a href="/index.html">
+                    <img src="https://res.cloudinary.com/ddqar8r8f/image/upload/v1676985168/K%C3%B8ge%20handel/home-pin_vftiwz.svg"
+                        alt="Home button">
+                    <div id="current-page"></div>
+                </a>
+            </div>
+            <div class="icon"><a href="/pages/parking.html"><img
+                        src="https://res.cloudinary.com/ddqar8r8f/image/upload/v1676986621/K%C3%B8ge%20handel/P_mn4zm8.svg"
+                        alt="Parking"></a>
+            </div>
+            <div class="icon"><a href="/pages/route.html"><img
+                        src="https://res.cloudinary.com/ddqar8r8f/image/upload/v1676985168/K%C3%B8ge%20handel/route_v8bf57.svg"
+                        alt="Route"></a>
+            </div>
+            <div class="icon"><a href="/pages/inspiration.html"><img
+                        src="https://res.cloudinary.com/ddqar8r8f/image/upload/v1676992692/K%C3%B8ge%20handel/shopping_bag_bgxmu4.svg"
+                        alt="Shopping bag"></a>
+            </div>
+        </div>
+    </nav>
+    <!-- Base stop -->
+    <!-- Write underneath here for the context of page -->
+    <header>
+        <h1>Velkommen til <br>
+            Blegdammens parkeringsplads <br>
+        </h1>
+        <div class="p-img">
+            <img src="https://res.cloudinary.com/ddqar8r8f/image/upload/v1676996865/K%C3%B8ge%20handel/Screenshot_2023-02-21_at_17.27.34_yloc06.png"
+                alt="">
+        </div>
+        <p id="time"></p> <!-- Time from javascript-->
+        <p id="date"></p><!-- Date -->
+    </header>
+    <section>
+        <div class="container">
+            <h2>Parkeringsregler:</h2>
+            <ul>
+                <li>Gratis parkering <br> 1 time - 22 pladser udenfor Netto
+
+                </li>
+                <li>Betal parkering <br> 10 kr/h - parkeringspladserne langs vejen.
+                </li>
+                <li>Det er gratis at parkere i betalings- og bufferzonen på
+                </li>
+                <li style="margin-left: 2.5em;">hverdage i tidsrummet kl. 18-08 </li>
+                <li style="margin-left: 2.5em;">og lørdag i tidsrummet kl. 15-08, </li>
+                <li style="margin-left: 2.5em;">samt søn- og helligdage.</li>
+                <li>Områdezone til app: 3651161</li>
+            </ul>
+        </div>
+        <img class="double-ar" src="https://res.cloudinary.com/ddqar8r8f/image/upload/v1677161763/K%C3%B8ge%20handel/double-arrow_ybxfrc.svg"
+            alt="double arrow">
+    </section>
+
+    <section class="buttons">
+        <h3>Find de forskellige forretninger i dit område</h3>
+        <div class="button">
+            <a href="/pages/route.html">Ruter</a>
+        </div>
+
+
+
+        <div class="ins-btn">
+            <h3>Vil du se mere af, hvad Køge har at byde på? <br>
+                Tag et kig</h3>
+            <img src="https://res.cloudinary.com/ddqar8r8f/image/upload/v1677001030/K%C3%B8ge%20handel/arrow_unfzcy.svg"
+                alt="">
+        </div>
+
+        <div class="button">
+            <a href="/pages/inspiration.html">
+                Inspiration
+            </a>
+        </div>
+    </section>
+    <script>
+
+        // How the time is suppose format when called
+        // Hour and minutes in numbers instead of a string of text, 24h, time zone Copenhagen. 
+        const options = {
+            hour: 'numeric',
+            minute: 'numeric',
+            hour12: false,
+            timeZone: 'Europe/Copenhagen'
+        };
+
+        // Makes a new time and date object
+        // Makes 3 variables.
+        // Get the current date and time.
+        const date = new Date();
+        //Makes a local string with the right formatting. The da-DK is the local code, danish in Denmark, and the options from earlier. 
+        const danishTime = date.toLocaleString('da-DK', options);
+        //The same as the time. 'long' means its spelled out in full.
+        const danishDate = date.toLocaleDateString('da-DK', { day: 'numeric', month: 'long', year: 'numeric' });
+        //Then it takes the html with the ids, and the textContent sets whats suppose to be inside. It creates a sting and uses a template literal to put in the variable of the time/date.
+        document.getElementById('time').textContent = `Tid: ${danishTime}`;
+        document.getElementById('date').textContent = `Dato: ${danishDate}`;
+
+    </script>
+</body>
+
+</html>
